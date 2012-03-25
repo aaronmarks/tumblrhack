@@ -13,6 +13,26 @@ function query($query) {
     return $row;
 }
 
+function get_gif_urls() {
+    $url = "http://api.tumblr.com/v2/tagged?tag=gif&api_key=f9d9xnEI9NR0VbU5MPqQG0NPSjIqh3m7AR2IoM5k2P6TElQHER";
+    $result = json_decode(file_get_contents($url));
+    foreach($result->response as $response) {
+        $gif_urls[] = $response->photos[0]->original_size->url;
+    }
+
+    return $gif_urls;
+}
+
+function post_array_from_gifs($urls) {
+    $i = 0;
+    foreach($urls as $url) {
+        $posts[$i]["author"] = "THE INTERNET";
+        $posts[$i++]["content"] = "<img src='$url' />";
+    }
+
+    return $posts;
+}
+
 function load_post_xml($type){
     $access_token = $_SESSION['access_token']['oauth_token'];
     $access_secret = $_SESSION['access_token']['oauth_token_secret'];

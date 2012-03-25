@@ -8,6 +8,8 @@ $photo_xml = load_post_xml('photo');
 $photo_posts = post_array_from_xml($photo_xml);
 $video_xml = load_post_xml('video');
 $video_posts = post_array_from_xml($video_xml);
+$gif_urls = get_gif_urls();
+$gif_posts = post_array_from_gifs($gif_urls);
 ?>
 <html>
 <head>
@@ -42,6 +44,13 @@ $video_posts = post_array_from_xml($video_xml);
             posts[i]["content"] = "<?php echo $post['content']; ?>";
             i = i+1;
         <?php } ?>
+        <?php foreach($gif_posts as $post) { ?> 
+            posts[i] = new Array;
+            posts[i]["type"] = "gif"; 
+            posts[i]["author"] = "<?php echo $post['author']; ?>"; 
+            posts[i]["content"] = "<?php echo $post['content']; ?>";
+            i = i+1;
+        <?php } ?>
     </script>
 </head>
 <div id='type_selectors'>
@@ -53,6 +62,8 @@ $video_posts = post_array_from_xml($video_xml);
         <img onmouseover="$('temp_text').innerHTML='Photos';" onmouseout="$('temp_text').innerHTML='Select a post type from above...';" src='images/photo_icon.png' /></a></li>
     <li><a href="#" onclick="initialize_type('video');set_logo('TumblrTV&nbsp;&nbsp;');">
         <img onmouseover="$('temp_text').innerHTML='Video';" onmouseout="$('temp_text').innerHTML='Select a post type from above...';" src='images/video_icon.png' /></a></li>
+    <li><a href="#" onclick="initialize_type('gif');set_logo('GIFMachine');">
+        <img onmouseover="$('temp_text').innerHTML='GIFS!';" onmouseout="$('temp_text').innerHTML='Select a post type from above...';" src='images/gif_icon.png' /></a></li>
 </ul>
 </div>
 
