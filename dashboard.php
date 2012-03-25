@@ -11,7 +11,7 @@ $video_posts = post_array_from_xml($video_xml);
 ?>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Dashbored</title>
     <link rel='stylesheet' type='text/css' href='styles/dashboard.css' />
     <script src='scriptaculous-js-1.9.0/lib/prototype.js'></script>
     <script src='dashboard.js'></script>
@@ -46,7 +46,7 @@ $video_posts = post_array_from_xml($video_xml);
 </head>
 <div id='type_selectors'>
 <ul>
-    <li id='logo'>Tumblr&nbsp;&nbsp;&nbsp;&nbsp; </li>
+    <li id='logo'>Dashbored.&nbsp;&nbsp;&nbsp;&nbsp; </li>
     <li><a href="#" onclick="initialize_type('regular');set_logo('TumblrText');">
         <img onmouseover="$('temp_text').innerHTML='Text';" onmouseout="$('temp_text').innerHTML='Select a post type from above...';" src='images/text_icon.png' /></a></li>
     <li><a href="#" onclick="initialize_type('photo');set_logo('TumblrPics');">

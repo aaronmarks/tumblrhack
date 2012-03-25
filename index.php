@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Tumbl On</title>
+<title>Dashbored.</title>
 <style>
     *{
         background:#2d4569;
@@ -22,8 +22,9 @@
 </style>
 </head>
 <div id='login'>
-    <span style='font-size:2em;background:white;' />Let's Get Ready to Tumbl!</span>
-    <br /><br />
+    <span style='font-size:2em; font-weight:600; background:white;' />Dashbored.</span>
+    <div style='background:white;margin-top:10px;'>A hackNY hack</div>
+    <br />
     <a href='tumblroauth/redirect.php'>Log in</a>
 </div>
 </html>
