@@ -28,13 +28,24 @@ function post_array_from_xml($post_xml) {
     $i = 0;
     foreach($post_xml->posts->post as $post) {
         $type = $post->attributes()->type;
-        $posts[$i] = $type;
+        $posts[$i]["type"] = $type;
 
         if($type == "photo") {
-            print_r($post->{'photo-url'});
+            $posts[$i]['content'] = "<img src='".$post->{'photo-url'}[0]."' />";
         }
+        if($type == "video") {
+            $posts[$i]['content'] = $post->{'video-player'}[1];
+        }
+        if($type == "regular") {
+            $title = $post->{'regular-title'};
+            $text = $post->{'regular-body'};
+            $posts[$i]['content'] = "<h2>$title</h2><p>$text</p>";
+        }
+
         $i++;
     }
+
+    return $posts;
 }
 
 ?>

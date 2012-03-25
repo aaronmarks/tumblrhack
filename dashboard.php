@@ -11,12 +11,13 @@ $posts = post_array_from_xml($post_xml);
     <link rel='stylesheet' type='text/css' href='styles/dashboard.css' />
     <script src='dashboard.js'></script>
     <script>
-        var posts = new Array();
+    var posts = new Array();
         var i = 0;
         <?php
-        foreach($post_xml->posts->post as $post) { ?> 
-            posts[i] = "<?php echo $post->attributes()->type; ?>"; 
-
+        foreach($posts as $post) { ?> 
+            posts[i] = new Array;
+            posts[i]["type"] = "<?php echo $post['type']; ?>"; 
+            posts[i]["content"] = "<?php echo $post['content']; ?>";
             i = i+1;
         <?php } ?>
     </script>
@@ -31,6 +32,7 @@ $posts = post_array_from_xml($post_xml);
 </div>
 
 <div id='posts'>
+
 </div>
 
 <div id='post_controls'>
