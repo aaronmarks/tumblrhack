@@ -1,35 +1,57 @@
+body{
+    font-family:"Helvetica Neue", "Helvetica", Sans;
+    background:#2d4569;
+}
+
 #type_selectors{
     border:solid black 2px;
-    width:960px;
+    border-radius:4px;
+    padding:10px;
+    width:700px;
     margin:auto;
     text-align:center;
+}
+
+#logo{
+    font-weight:600;
 }
 
 li {
     display:inline;
     text-align:center;
-    margin-right:20%;
+    margin-right:10%;
+    font-size:1.5em;
+    background:white !important;
 }
+
+#type_selectors, #posts, #post_controls, a:visited, li, ul, h2, a{
+    background:white !important;
+}   
+
 #posts{
     padding:10px;
-    overflow:scroll;
-    width:960px;
     height:500px;
+    overflow:scroll;
+    width:700px;
     margin:auto;
     text-align:center;
+    border-radius:4px;
 }
 
 #post_controls{
-    width:100%;
-    border:solid black 2px;
+    border-radius:4px;
+    padding:10px;
+    width:700px;
+    margin:auto;
+    height:60px;
+    margin-top:-10px;
 }
 
 #left_button, #right_button{
     cursor:pointer;
     font-size:3em;
     width:48%;
-    height:10%;
-    border:solid red 1px;
+    height:8%;
     text-align:center;
 }
 
@@ -38,4 +60,10 @@ li {
 }
 #left_button{
     float:left;
+    height:65px;
+    border-right: solid gray 2px;
+}
+
+.reg{
+    text-align:left !important;
 }

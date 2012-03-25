@@ -2,8 +2,12 @@
 require_once('tumblroauth/tumblroauth/tumblroauth.php');
 require_once('tumblroauth/config.php');
 include 'utils.php';
-$post_xml = load_post_xml();
-$posts = post_array_from_xml($post_xml);
+$reg_xml = load_post_xml('regular');
+$reg_posts = post_array_from_xml($reg_xml);
+$photo_xml = load_post_xml('photo');
+$photo_posts = post_array_from_xml($photo_xml);
+$video_xml = load_post_xml('video');
+$video_posts = post_array_from_xml($video_xml);
 ?>
 <html>
 <head>
@@ -15,9 +19,26 @@ $posts = post_array_from_xml($post_xml);
     var posts = new Array();
         var i = 0;
         <?php
-        foreach($posts as $post) { ?> 
+        foreach($reg_posts as $post) { ?> 
             posts[i] = new Array;
-            posts[i]["type"] = "<?php echo $post['type']; ?>"; 
+            posts[i]["type"] = "regular"; 
+            posts[i]["author"] = "<?php echo $post['author']; ?>"; 
+            posts[i]["content"] = "<span class='reg'><?php echo $post['content']; ?></span>";
+            i = i+1;
+        <?php } ?>
+        <?php
+        foreach($photo_posts as $post) { ?> 
+            posts[i] = new Array;
+            posts[i]["type"] = "photo"; 
+            posts[i]["author"] = "<?php echo $post['author']; ?>"; 
+            posts[i]["content"] = "<?php echo $post['content']; ?>";
+            i = i+1;
+        <?php } ?>
+        <?php
+        foreach($video_posts as $post) { ?> 
+            posts[i] = new Array;
+            posts[i]["type"] = "video"; 
+            posts[i]["author"] = "<?php echo $post['author']; ?>"; 
             posts[i]["content"] = "<?php echo $post['content']; ?>";
             i = i+1;
         <?php } ?>
@@ -25,20 +46,24 @@ $posts = post_array_from_xml($post_xml);
 </head>
 <div id='type_selectors'>
 <ul>
-    <li><a href="#" onclick="initialize_type('regular');">Text</a></li>
-    <li><a href="#" onclick="initialize_type('photo');">Photo</a></li>
-    <li><a href="#">Video</a></li>
-    <li><a href="#">Audio</a></li>
+    <li id='logo'>Tumblr&nbsp;&nbsp;&nbsp;&nbsp; </li>
+    <li><a href="#" onclick="initialize_type('regular');set_logo('TumblrText');">
+        <img onmouseover="$('temp_text').innerHTML='Text';" onmouseout="$('temp_text').innerHTML='Select a post type from above...';" src='images/text_icon.png' /></a></li>
+    <li><a href="#" onclick="initialize_type('photo');set_logo('TumblrPics');">
+        <img onmouseover="$('temp_text').innerHTML='Photos';" onmouseout="$('temp_text').innerHTML='Select a post type from above...';" src='images/photo_icon.png' /></a></li>
+    <li><a href="#" onclick="initialize_type('video');set_logo('TumblrTV&nbsp;&nbsp;');">
+        <img onmouseover="$('temp_text').innerHTML='Video';" onmouseout="$('temp_text').innerHTML='Select a post type from above...';" src='images/video_icon.png' /></a></li>
 </ul>
 </div>
 
 <div id='posts'>
-Select a post type from above...
+<h2 id='temp_text' style='margin-top:180px;color:gray;' >Select a post type from above...</h2>
 </div>
 
 <div id='post_controls'>
-    <a id='left_button' onclick="prev_post();"><---</a>
-    <a id='right_button'onclick="next_post();">---></a>
+    <a id='left_button' onclick="prev_post();">&larr;</a>
+    <div id='divider'></div>
+    <a id='right_button'onclick="next_post();">&rarr;</a>
 </div>
 
 </html>
