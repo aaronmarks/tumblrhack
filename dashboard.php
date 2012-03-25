@@ -11,7 +11,7 @@ $video_posts = post_array_from_xml($video_xml);
 ?>
 <html>
 <head>
-    <title>Dashbored</title>
+    <title>Dashbored.</title>
     <link rel='stylesheet' type='text/css' href='styles/dashboard.css' />
     <script src='scriptaculous-js-1.9.0/lib/prototype.js'></script>
     <script src='dashboard.js'></script>
@@ -61,9 +61,11 @@ $video_posts = post_array_from_xml($video_xml);
 </div>
 
 <div id='post_controls'>
-    <a id='left_button' onclick="prev_post();">&larr;</a>
-    <div id='divider'></div>
-    <a id='right_button'onclick="next_post();">&rarr;</a>
+    <a id='left_button' onclick="prev_post();"
+        onmousedown="highlight('left_button');" onmouseup="un_highlight();">&larr;</a>
+    <a id='right_button' onclick="next_post();"
+        onmousedown="highlight('right_button');" onmouseup="un_highlight();">&rarr;</a>
+
 </div>
 
 </html>

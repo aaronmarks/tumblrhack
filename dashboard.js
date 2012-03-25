@@ -2,8 +2,12 @@ var post_index = 0;
 var post_type = "";
 
 document.observe('keydown', function(e){
-    if(e.keyCode == 37) { prev_post(); }
-    if(e.keyCode == 39) { next_post(); }
+    if(e.keyCode == 37) { prev_post(); highlight('left_button');}
+    if(e.keyCode == 39) { next_post(); highlight('right_button');}
+});
+
+document.observe('keyup', function(e){
+    un_highlight();
 });
 
 function initialize_type(type) {
@@ -42,4 +46,16 @@ function next_post() {
 
 function set_logo(text){
     $('logo').innerHTML=text;
+}
+
+function highlight(id){
+    var sheet = document.createElement('style');
+    //sheet.innerHTML = "#" + id + "{background:#EEE !important;}";
+    document.body.appendChild(sheet);
+}
+
+function un_highlight() {
+    var sheet = document.createElement('style');
+    sheet.innerHTML = "#left_button, #right_button{background:#FFF !important;}";
+    document.body.appendChild(sheet);
 }
