@@ -1,4 +1,6 @@
 <?php
+require_once('tumblroauth/tumblroauth/tumblroauth.php');
+require_once('tumblroauth/config.php');
 include 'utils.php';
 load_posts();
 ?>

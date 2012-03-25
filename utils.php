@@ -13,8 +13,11 @@ function query($query) {
 }
 
 function load_posts(){
-    //query database for logged in id's access tokens
+    $connection = new TumblrOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_secret);
     //hit tumblr 1 or 2 times (20 or 40 posts), depending on how long it takes
     //create js array posts with each having type, innerhtml
+}
+
+function get_access_tokens(){
 }
 ?>
