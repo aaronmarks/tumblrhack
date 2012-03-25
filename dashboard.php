@@ -9,6 +9,7 @@ $posts = post_array_from_xml($post_xml);
 <head>
     <title>Dashboard</title>
     <link rel='stylesheet' type='text/css' href='styles/dashboard.css' />
+    <script src='scriptaculous-js-1.9.0/lib/prototype.js'></script>
     <script src='dashboard.js'></script>
     <script>
     var posts = new Array();
@@ -24,15 +25,15 @@ $posts = post_array_from_xml($post_xml);
 </head>
 <div id='type_selectors'>
 <ul>
-    <li><a href="#">Text</a></li>
-    <li><a href="#">Photo</a></li>
+    <li><a href="#" onclick="initialize_type('regular');">Text</a></li>
+    <li><a href="#" onclick="initialize_type('photo');">Photo</a></li>
     <li><a href="#">Video</a></li>
     <li><a href="#">Audio</a></li>
 </ul>
 </div>
 
 <div id='posts'>
-
+Select a post type from above...
 </div>
 
 <div id='post_controls'>
