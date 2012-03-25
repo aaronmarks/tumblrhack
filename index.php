@@ -2,5 +2,5 @@
 <html>
 Tumbl Better
 <br /><br />
-Log in: <a href='oauth/redirect.php'>Here</a>
+Log in: <a href='tumblroauth/redirect.php'>Here</a>
 </html>

@@ -1,0 +1,28 @@
+li {
+    display:inline;
+}
+#posts{
+    width:80%;
+    height:500px;
+}
+
+#post_controls{
+    width:100%;
+    border:solid black 2px;
+}
+
+#left_button, #right_button{
+    cursor:pointer;
+    font-size:3em;
+    width:48%;
+    height:10%;
+    border:solid red 1px;
+    text-align:center;
+}
+
+#right_button{
+    float:right;
+}
+#left_button{
+    float:left;
+}
